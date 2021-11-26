@@ -7,6 +7,9 @@ class Circle(models.Model):
     description = models.CharField(max_length=300)
     image = models.ImageField()
     created_by = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.name
 
 class CircleUser(models.Model):
     circle = models.ManyToManyField(Circle)
