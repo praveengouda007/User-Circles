@@ -6,9 +6,9 @@ from rest_framework import serializers
 class CircleUserSerializer(ModelSerializer):
     class Meta:
         model = CircleUser
-        fields = ['circle','name','role', 'users']
+        fields = ['name','role', 'users']
 
 class CircleSerializer(ModelSerializer):
     class Meta:
         model = Circle
-        fields = ['name', 'description', 'image', 'created_by']
+        fields = ['circleuser', 'id', 'name', 'description', 'image', 'created_by']
