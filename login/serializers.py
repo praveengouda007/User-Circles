@@ -5,7 +5,7 @@ from .models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'name', 'email', 'password','is_superuser']
+        fields = ['id', 'name', 'email', 'password','is_superuser','phone']
         extra_kwargs = {
             'password': {'write_only': True}
         }
@@ -17,3 +17,6 @@ class UserSerializer(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+
+class VerifySerializer(serializers.ModelSerializer):
+    code = serializers.CharField(max_length=8, required=True)
